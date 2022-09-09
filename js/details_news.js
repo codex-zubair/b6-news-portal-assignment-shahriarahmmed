@@ -1,9 +1,10 @@
-const loadNewsDetails = async (category_id) => {
-    const url = ` https://openapi.programming-hero.com/api/news/category/${category_id}`
+const allNews = async (category_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url);
     const data = await res.json();
     displayNewsDetails(data.data);
-    
+
+
 }
 
 
@@ -52,4 +53,4 @@ const displayNewsDetails = data => {
     });
 }
 
-loadNewsDetails()
+

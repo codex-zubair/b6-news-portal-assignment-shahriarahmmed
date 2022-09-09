@@ -1,24 +1,34 @@
 // Dynamic categories data fetch 
+
+// step one load data.
 const loadCategories = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
     const res = await fetch(url);
     const data = await res.json();
-    displayCategories(data.data.news_category);
+    // displayCategories(data);
+    displayCategories(data.data);
 }
 
-function allNews() {
-    
-}
+
+
 
 const displayCategories = data => {
+
     
     const newsCategories = document.getElementById('news-categories');
 
-    data.forEach(category => {
+    data.news_category.forEach(category => {
+
+      
+
+
         const categoriesDiv = document.createElement('div');
         categoriesDiv.classList.add('nav-item');
-        categoriesDiv.innerHTML = `
-                <a class="nav-link fw-semibold" href="#" id="" onclick="allNews()"> ${category.category_name}</a>
+        categoriesDiv.innerHTML = ` 
+
+    
+                <a class="nav-link fw-semibold" href="#" id="" onclick="allNews('${category.category_id
+                }')"> ${category.category_name}</a>
             `;
         newsCategories.appendChild(categoriesDiv);
 
@@ -41,4 +51,4 @@ function news()  {
     })
 }
 
-loadCategories()
+loadCategories();
